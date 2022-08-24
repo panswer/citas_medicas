@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    container_name: test2_web
+    build: .
+    environment:
+      DB_USER: root
+      DB_PASSWORD: test2
+      DB_NAME: test
+      DB_HOST: db
+    networks:
+      - backend
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+  db:
+    container_name: test2_db
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: test2
+      MYSQL_DATABASE: test
+    networks:
+      - backend
+    volumes:
+      - ./db:/var/lib/mysql
+
+networks:
+  backend:
