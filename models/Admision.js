@@ -63,3 +63,5 @@ class Admision extends DB {
         });
     }
 }
+
+export default Admision;
