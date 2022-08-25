@@ -11,6 +11,9 @@ const create = async (req, res) => {
             });
         } else if (req.method === 'GET') {
             const { pacienteId } = req.query;
+            let admisions = await Admision.getEmptyByPacienteId(pacienteId);
+
+            res.json(admisions.result);
         } else {
             res.status(404).send("Page Not Found.");
         }
