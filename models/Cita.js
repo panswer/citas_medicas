@@ -68,7 +68,7 @@ class Cita extends DB {
 
         return new Promise((resolve, reject) => {
             this.session.query(`UPDATE test.Citas
-            SET admision_id=${update.admision_id}, status='${update.status}', doctor_id=${update.doctor_id}, cuando='${update.cuando}', consultorio=${update.consultorio}, direccion_paciente='${update.direccion_paciente}', telefono='${update.telefono}', telefono_allegado='${update.telefono_allegado}', updated_at=CURRENT_TIMESTAMP
+            SET status='${update.status}', doctor_id=${update.doctor_id}, cuando='${update.cuando}', consultorio=${update.consultorio}, direccion_paciente='${update.direccion_paciente}', telefono='${update.telefono}', telefono_allegado='${update.telefono_allegado}', updated_at=CURRENT_TIMESTAMP
             WHERE cita_id=${citaId};`, (error) => {
                 if (error) {
                     reject(error);
@@ -115,6 +115,29 @@ class Cita extends DB {
             left join Admision a on c.admision_id = a.admision_id 
             LEFT JOIN Doctores d on c.doctor_id = d.doctor_id 
             WHERE a.paciente_id = ${pacienteId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
+                }
+            });
+        });
+    }
+
+    /**
+     * 
+     * @param {number} citaId 
+     * @returns {Promise<import('./Historial').ResultSchema>}
+     */
+    static historialById(citaId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT * FROM Historial h WHERE h.cita_id = ${citaId};`, (error, result, fields) => {
                 if (error) {
                     reject(error);
                 } else {
