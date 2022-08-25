@@ -15,6 +15,12 @@ import DB from '../condig/db';
  * @property {string} [updated_at]
  */
 
+/**
+ * @typedef {object} ResultSchema
+ * @property {Array<CitaSchema>} result
+ * @property {Array<object} fields
+ */
+
 class Cita extends DB {
     /**
      * datos en cita
@@ -32,7 +38,7 @@ class Cita extends DB {
     }
 
     /**
-     * @returns {Promise<boolean}
+     * @returns {Promise<boolean>}
      */
     save() {
         return new Promise((resolve, reject) => {
@@ -43,6 +49,77 @@ class Cita extends DB {
                     reject(error);
                 } else {
                     resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * actualizar una cita por su identificador
+     * @param {number} citaId 
+     * @param {CitaSchema} update 
+     * @returns {Promise<boolean>}
+     */
+    static updateById(citaId, update) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`UPDATE test.Citas
+            SET admision_id=${update.admision_id}, status='${update.status}', doctor_id=${update.doctor_id}, cuando='${update.cuando}', consultorio=${update.consultorio}, direccion_paciente='${update.direccion_paciente}', telefono='${update.telefono}', telefono_allegado='${update.telefono_allegado}', updated_at=CURRENT_TIMESTAMP
+            WHERE cita_id=${citaId};`, (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * eliminar cita por su identificador
+     * @param {number} citaId 
+     * @returns {Promise<boolean>}
+     */
+    static deleteById(citaId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`DELETE FROM test.Citas
+            WHERE cita_id=${citaId};
+            `, (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * obtener lista de citas por identificador de paciente
+     * @param {number} pacienteId 
+     * @returns {Promise<ResultSchema>}
+     */
+    static findByPacienteId(pacienteId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT * from Citas c
+            left join Admision a on c.admision_id = a.admision_id 
+            LEFT JOIN Doctores d on c.doctor_id = d.doctor_id 
+            WHERE a.paciente_id = ${pacienteId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
                 }
             });
         });

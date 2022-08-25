@@ -9,6 +9,8 @@ const create = async (req, res) => {
             res.status(201).json({
                 ok: true
             });
+        } else if (req.method === 'GET') {
+            const { pacienteId } = req.query;
         } else {
             res.status(404).send("Page Not Found.");
         }
