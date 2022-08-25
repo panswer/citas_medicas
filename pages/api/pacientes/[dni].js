@@ -1,4 +1,5 @@
 import Paciente from "../../../models/Paciente";
+import Admision from '../../../models/Admision';
 
 const update = async (req, res) => {
     const { dni } = req.query;
@@ -25,6 +26,22 @@ const update = async (req, res) => {
 
                 res.status(202).json({
                     ok: true
+                });
+            }
+        } else if (req.method === 'DELETE') {
+            let pacientedb = await Paciente.findByDNI(dni);
+
+            if (pacientedb.result.length > 0) {
+                let paciente = pacientedb.result[0];
+
+                await Paciente.deleteById(paciente.paciente_id);
+
+                res.status(202).json({
+                    ok: true
+                });
+            } else {
+                res.status(422).json({
+                    message: "No existe paciente registrado con la DNI"
                 });
             }
         } else {

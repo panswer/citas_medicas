@@ -19,6 +19,7 @@ class Admision extends DB {
      * @param {number} pacienteId - identificador de paciente
      */
     constructor(pacienteId) {
+        super();
         this.pacienteId = pacienteId;
     }
 
@@ -58,6 +59,32 @@ class Admision extends DB {
                         result,
                         fields
                     })
+                }
+            });
+        });
+    }
+
+    /**
+     * obtener admision libres
+     * @param {number} pacienteId 
+     * @returns {Promise<ResultSchema>}
+     */
+    static getEmptyByPacienteId(pacienteId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT a.admision_id , a.paciente_id , a.fecha_ingreso  FROM Admision a 
+            left join Citas c on a.admision_id = c.admision_id 
+            WHERE c.cita_id is NULL 
+            AND a.paciente_id = ${pacienteId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
                 }
             });
         });
