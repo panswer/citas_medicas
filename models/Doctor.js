@@ -23,6 +23,8 @@ class Doctor extends DB {
         nombre,
         apellido
     }) {
+        super();
+
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -71,7 +73,7 @@ class Doctor extends DB {
         }
 
         return new Promise((resolve, reject) => {
-            this.session(`UPDATE test.Doctores
+            this.session.query(`UPDATE test.Doctores
             SET nombre='${update.nombre}', apellido='${update.apellido}'
             WHERE doctor_id=${doctorId};
             `, (error) => {
@@ -122,6 +124,29 @@ class Doctor extends DB {
                     reject(error);
                 } else {
                     resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * Listar citas del doctor
+     * @param {number} doctorId 
+     * @returns {Promise<import('./Cita').ResultSchema>}
+     */
+    static citasById(doctorId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT * FROM Citas c WHERE c.doctor_id = ${doctorId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
                 }
             });
         });
