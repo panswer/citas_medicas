@@ -1,7 +1,7 @@
 import DB from '../condig/db';
 /**
  * @typedef {object} PacienteSchema
- * @property {number} [id]
+ * @property {number} [paciente_id]
  * @property {string} nombre
  * @property {string} apellido
  * @property {string} DNI
