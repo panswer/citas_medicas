@@ -1,6 +1,6 @@
 import Cita from "../../../models/Cita";
 
-const create = (req, res) => {
+const create = async (req, res) => {
     try {
         if (req.method === 'POST') {
             const {

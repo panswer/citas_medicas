@@ -27,6 +27,8 @@ class Cita extends DB {
      * @param {CitaSchema} data 
      */
     constructor(data) {
+        super();
+
         this.admision_id = data.admision_id;
         this.status = data.status;
         this.doctor_id = data.doctor_id;
@@ -44,7 +46,7 @@ class Cita extends DB {
         return new Promise((resolve, reject) => {
             this.session.query(`INSERT INTO test.Citas
             (admision_id, doctor_id, cuando, consultorio, direccion_paciente, telefono, telefono_allegado, updated_at)
-            VALUES(${this.admision_id}, ${this.doctor_id}, ${this.cuando}, ${this.consultorio}, ${this.direccion_paciente}, ${this.telefono}, ${this.telefono_allegado}, CURRENT_TIMESTAMP);`, (error, result, fields) => {
+            VALUES(${this.admision_id}, ${this.doctor_id}, '${this.cuando}', ${this.consultorio}, '${this.direccion_paciente}', '${this.telefono}', '${this.telefono_allegado}', CURRENT_TIMESTAMP);`, (error, result, fields) => {
                 if (error) {
                     reject(error);
                 } else {
