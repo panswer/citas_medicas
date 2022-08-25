@@ -113,7 +113,7 @@ class Paciente extends DB {
     /**
      * Buscar un paciente por id
      * @param {number} id - paciente id
-     * @returns {Promise<object>}
+     * @returns {Promise<{result: Array<PacienteSchema, fields: Array<object>}>}
      */
     static async findById(id) {
         let db = new DB();

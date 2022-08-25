@@ -1,5 +1,8 @@
 import mysql from 'mysql';
 
+/**
+ * @type {import('mysql').Connection|null}
+ */
 let conection = null;
 
 class DB {
