@@ -1,6 +1,6 @@
 import Alerta from '../../../models/Alerta';
 
-const crear = (req, res) => {
+const crear = async (req, res) => {
     try {
         if (req.method === 'POST') {
             const { razon, paciente_id } = req.body;

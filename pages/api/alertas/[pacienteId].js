@@ -1,22 +1,13 @@
 import Alerta from '../../../models/Alerta';
 
-const update = (req, res) => {
+const update = async (req, res) => {
     try {
         if (req.method === 'GET') {
             const { pacienteId } = req.query;
 
             let alertas = await Alerta.findAllByPacienteId(pacienteId);
 
-            res.status(200).json({
-                alertas: alertas.result
-            });
-        } else if (req.method === 'PUT') {
-            const { pacienteId } = req.query;
-            await Alerta.changeStatus(pacienteId);
-
-            res.status(202).json({
-                ok: true
-            });
+            res.status(200).json(alertas.result);
         } else if (req.method === 'DELETE') {
             const { pacienteId } = req.query;
 
