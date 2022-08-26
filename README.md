@@ -31,3 +31,9 @@ DB_NAME=database name
 DB_PASSWORD=database user's password
 DB_USER=database user's name
 ```
+
+## Database
+The schema in database is in config db `citas_medicas.sql`
+
+## Documentation API rest
+The documentation is in Postman, the export is in config `test.postman_collection.json`
