@@ -1,5 +1,8 @@
 import Paciente from "../../../models/Paciente";
 import Admision from '../../../models/Admision';
+import Cita from "../../../models/Cita";
+import Historial from "../../../models/Historial";
+import Alertas from '../../../models/Alerta';
 
 const update = async (req, res) => {
     const { dni } = req.query;
@@ -14,8 +17,8 @@ const update = async (req, res) => {
             } else {
                 const { nombre, apellido, DNI, fechaNacimiento } = req.body;
 
-                await Paciente.updateById(
-                    pacientedb.result[0].id,
+                await Paciente.updateByDNI(
+                    pacientedb.result[0].DNI,
                     {
                         nombre,
                         apellido,
@@ -33,6 +36,23 @@ const update = async (req, res) => {
 
             if (pacientedb.result.length > 0) {
                 let paciente = pacientedb.result[0];
+
+                await Alertas.deleteAlertasByPacienteId(paciente.paciente_id);
+                let admisions = await Paciente.admisionById(paciente.paciente_id);
+
+                await Promise.all(admisions.result.map(async data => {
+                    let citas = await Admision.citasById(data.admision_id);
+
+                    await Promise.all(citas.result.map(async data => {
+                        let historial = await Cita.historialById(data.cita_id);
+
+                        await Promise.all(historial.result.map(data => Historial.deleteById(data.historial_id)));
+
+                        return Cita.deleteById(data.cita_id);
+                    }));
+
+                    return Admision.deleteById(data.admision_id);
+                }));
 
                 await Paciente.deleteById(paciente.paciente_id);
 

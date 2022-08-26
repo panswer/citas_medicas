@@ -1,0 +1,2089 @@
+{
+	"info": {
+		"_postman_id": "b2379d13-8fb9-4bed-91e8-0c8a59f34ab5",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10140640"
+	},
+	"item": [
+		{
+			"name": "paciente",
+			"item": [
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"maria\",\n    \"apellido\": \"fernanda\",\n    \"DNI\": \"25641163\",\n    \"fechaNacimiento\": \"1997-04-09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/pacientes/crear",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"pacientes",
+								"crear"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crear",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"maria\",\n    \"apellido\": \"fernanda\",\n    \"DNI\": \"111111111111\",\n    \"fechaNacimiento\": \"1997-04-09\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/pacientes/crear",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"pacientes",
+										"crear"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:31:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"ricardo\",\n    \"apellido\": \"mejias\",\n    \"DNI\": \"25641162\",\n    \"fechaNacimiento\": \"1997-04-09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/pacientes/:dni",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"pacientes",
+								":dni"
+							],
+							"variable": [
+								{
+									"key": "dni",
+									"value": "25641162"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"ricardo\",\n    \"apellido\": \"mejias\",\n    \"DNI\": \"25641162\",\n    \"fechaNacimiento\": \"1997-04-09\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/pacientes/:dni",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"pacientes",
+										":dni"
+									],
+									"variable": [
+										{
+											"key": "dni",
+											"value": "25641162"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:41:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "listar pacientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/pacientes/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"pacientes",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/pacientes/all",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"pacientes",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"ti74qos25d6q\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "242"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 19:49:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"paciente_id\": 1,\n        \"nombre\": \"ricardo\",\n        \"apellido\": \"mejias\",\n        \"DNI\": \"25641162\",\n        \"fecha_nacimiento\": \"1997-04-09T04:00:00.000Z\"\n    },\n    {\n        \"paciente_id\": 2,\n        \"nombre\": \"ricardo\",\n        \"apellido\": \"mejias\",\n        \"DNI\": \"000000000\",\n        \"fecha_nacimiento\": \"1997-04-09T04:00:00.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/pacientes/:dni",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"pacientes",
+								":dni"
+							],
+							"variable": [
+								{
+									"key": "dni",
+									"value": "25641163"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/pacientes/:dni",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"pacientes",
+										":dni"
+									],
+									"variable": [
+										{
+											"key": "dni",
+											"value": "25641162"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:54:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cita",
+			"item": [
+				{
+					"name": "get all citas by paciente id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/citas/paciente/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"citas",
+								"paciente",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all citas by paciente id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/citas/paciente/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"citas",
+										"paciente",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"dgpskar0j6at\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "389"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 19:28:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"cita_id\": 1,\n        \"admision_id\": 1,\n        \"status\": \"pendiente\",\n        \"doctor_id\": 1,\n        \"cuando\": \"2022-12-01T04:00:00.000Z\",\n        \"consultorio\": 1,\n        \"direccion_paciente\": \"su casa\",\n        \"telefono\": \"0000 000 00 00\",\n        \"telefono_allegado\": \"1111 111 11 11\",\n        \"created_at\": \"2022-08-25T23:13:58.000Z\",\n        \"updated_at\": \"2022-08-25T23:13:58.000Z\",\n        \"paciente_id\": 1,\n        \"fecha_ingreso\": \"2022-08-25T19:19:18.000Z\",\n        \"nombre\": \"happy\",\n        \"apellido\": \"feliz\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"admisionId\": 4,\n    \"doctorId\": 2,\n    \"cuando\":\"2022-12-01\",\n    \"consultorio\": 1,\n    \"direccionPaciente\": \"su casa\",\n    \"telefono\": \"0000 000 00 00\",\n    \"telefonoPaciente\": \"1111 111 11 11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/citas/create",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"citas",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"admisionId\": 2,\n    \"doctorId\": 1,\n    \"cuando\":\"2022-12-01\",\n    \"consultorio\": 1,\n    \"direccionPaciente\": \"su casa\",\n    \"telefono\": \"0000 000 00 00\",\n    \"telefonoPaciente\": \"1111 111 11 11\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/citas/create",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"citas",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 22:55:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar cita por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"atendiendo\",\n    \"doctorId\": 1,\n    \"cuando\": \"2022-08-25\",\n    \"consultorio\": 2,\n    \"direccionPaciente\": \"su casa aun\",\n    \"telefono\": \"0000 000 00 00\",\n    \"telefonoAllegado\": \"2222 222 22 22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/citas/:citaId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"citas",
+								":citaId"
+							],
+							"variable": [
+								{
+									"key": "citaId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar cita por id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"atendiendo\",\n    \"doctorId\": 1,\n    \"cuando\": \"2022-08-25\",\n    \"consultorio\": 2,\n    \"direccionPaciente\": \"su casa aun\",\n    \"telefono\": \"0000 000 00 00\",\n    \"telefonoAllegado\": \"2222 222 22 22\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/citas/:citaId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"citas",
+										":citaId"
+									],
+									"variable": [
+										{
+											"key": "citaId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:23:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminar cita con su historial",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/citas/:citaId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"citas",
+								":citaId"
+							],
+							"variable": [
+								{
+									"key": "citaId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminar cita con su historial",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/citas/:citaId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"citas",
+										":citaId"
+									],
+									"variable": [
+										{
+											"key": "citaId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:29:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admision",
+			"item": [
+				{
+					"name": "registrar ingreso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/admision/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"admision",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "registrar ingreso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/admision/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"admision",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 22:46:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "ingresos libres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/admision/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"admision",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ingresos libres",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/admision/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"admision",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"jghpkmehcb7b\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 22:47:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"admision_id\": null,\n        \"paciente_id\": 2,\n        \"fecha_ingreso\": \"2022-08-26T02:46:27.000Z\",\n        \"cita_id\": null,\n        \"status\": null,\n        \"doctor_id\": null,\n        \"cuando\": null,\n        \"consultorio\": null,\n        \"direccion_paciente\": null,\n        \"telefono\": null,\n        \"telefono_allegado\": null,\n        \"created_at\": null,\n        \"updated_at\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"admisionId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/admision/delete",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"admision",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"admisionId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/admision/delete",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"admision",
+										"delete"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:15:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "historial",
+			"item": [
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cita_id\": 3,\n    \"descripcion\": \"prueba\",\n    \"resumen\": \"prueba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/historial/crear",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"historial",
+								"crear"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crear",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cita_id\": 2,\n    \"descripcion\": \"descripcion 2\",\n    \"resumen\": \"2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/historial/crear",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"historial",
+										"crear"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 22:59:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "listar historial por paciente id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/historial/paciente/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"historial",
+								"paciente",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar historial por paciente id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/historial/paciente/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"historial",
+										"paciente",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"yiwxmgewhx8t\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "317"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:06:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"historial_id\": 1,\n        \"cita_id\": 1,\n        \"descripcion\": \"mi hisotiral\",\n        \"resumen\": \"historia\",\n        \"created_at\": \"2022-08-26T00:32:12.000Z\",\n        \"updated_at\": \"2022-08-26T00:32:12.000Z\"\n    },\n    {\n        \"historial_id\": 2,\n        \"cita_id\": 2,\n        \"descripcion\": \"descripcion 2\",\n        \"resumen\": \"2\",\n        \"created_at\": \"2022-08-26T02:59:26.000Z\",\n        \"updated_at\": \"2022-08-26T02:59:26.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "eliminar historial",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/historial/:historialId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"historial",
+								":historialId"
+							],
+							"variable": [
+								{
+									"key": "historialId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminar historial",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/historial/:historialId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"historial",
+										":historialId"
+									],
+									"variable": [
+										{
+											"key": "historialId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:07:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "editar historial",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"editando descripcion\",\n    \"resumen\": \"editando\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/historial/:historialId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"historial",
+								":historialId"
+							],
+							"variable": [
+								{
+									"key": "historialId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editar historial",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"descripcion\": \"editando descripcion\",\n    \"resumen\": \"editando\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/historial/:historialId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"historial",
+										":historialId"
+									],
+									"variable": [
+										{
+											"key": "historialId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:10:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "doctor",
+			"item": [
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"jose\",\n    \"apellido\": \"maiz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/doctor/create",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"doctor",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crear",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"jose\",\n    \"apellido\": \"maiz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/doctor/create",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"doctor",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:32:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "listar doctores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/doctor/all",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"doctor",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar doctores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/doctor/all",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"doctor",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"dwjdwktpao2v\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:33:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"doctor_id\": 1,\n        \"nombre\": \"happy\",\n        \"apellido\": \"feliz\"\n    },\n    {\n        \"doctor_id\": 2,\n        \"nombre\": \"jose\",\n        \"apellido\": \"maiz\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "editar a un doctor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"ricardo\",\n    \"apellido\": \"mejias\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/doctor/:doctorId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"doctor",
+								":doctorId"
+							],
+							"variable": [
+								{
+									"key": "doctorId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editar a un doctor",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"ricardo\",\n    \"apellido\": \"mejias\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/doctor/:doctorId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"doctor",
+										":doctorId"
+									],
+									"variable": [
+										{
+											"key": "doctorId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:37:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/doctor/:doctorId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"doctor",
+								":doctorId"
+							],
+							"variable": [
+								{
+									"key": "doctorId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eliminar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/doctor/:doctorId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"doctor",
+										":doctorId"
+									],
+									"variable": [
+										{
+											"key": "doctorId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Aug 2022 23:53:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "alertas",
+			"item": [
+				{
+					"name": "listar alertas por paciente id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/alertas/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"alertas",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listar alertas por paciente id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/alertas/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"alertas",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"10wf5d9sgw73d\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "121"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:22:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"alerta_id\": 2,\n        \"status\": \"pendiente\",\n        \"paciente_id\": 1,\n        \"razon\": \"prueba en alerta\",\n        \"created_at\": \"2022-08-26T04:22:07.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "crear alerta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"razon\": \"prueba en alerta\",\n    \"paciente_id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/alertas/create",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"alertas",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "crear alerta",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"razon\": \"prueba en alerta\",\n    \"paciente_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/alertas/create",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"alertas",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:22:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "actualizar alerta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"alertaId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/alertas/changeStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"alertas",
+								"changeStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "actualizar alerta",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"alertaId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/alertas/changeStatus",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"alertas",
+										"changeStatus"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:27:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "limpiar alerta por paciente id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/alertas/:pacienteId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"alertas",
+								":pacienteId"
+							],
+							"variable": [
+								{
+									"key": "pacienteId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "limpiar alerta por paciente id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/alertas/:pacienteId",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"alertas",
+										":pacienteId"
+									],
+									"variable": [
+										{
+											"key": "pacienteId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "\"w6gfy8q1ypb\""
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Aug 2022 00:28:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

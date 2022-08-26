@@ -158,7 +158,7 @@ class Paciente extends DB {
                 return new Promise((resolve, reject) => {
                     this.session.query(`UPDATE test.Paciente
                     SET nombre='${update.nombre}', apellido='${update.apellido}', DNI='${update.DNI}', fecha_nacimiento='${update.fechaNacimiento}'
-                    WHERE paciente_id=${dni};`, (error, result, fields) => {
+                    WHERE paciente_id=${dni};`, (error) => {
                         if (error) {
                             reject(error);
                         } else {
@@ -186,6 +186,29 @@ class Paciente extends DB {
                     reject(error);
                 } else {
                     resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * listar las fechas de ingreso por paciente id
+     * @param {number} pacienteId 
+     * @returns {Promise<import('./Admision').ResultSchema>}
+     */
+    static admisionById(pacienteId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT * FROM Admision a WHERE a.paciente_id = ${pacienteId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
                 }
             });
         });
