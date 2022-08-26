@@ -36,7 +36,7 @@ CREATE TABLE Citas (
                 telefono VARCHAR(30) NOT NULL,
                 telefono_allegado VARCHAR(30) NOT NULL,
                 created_at DATETIME DEFAULT NOW() NOT NULL,
-                updated_at DATETIME NOT NULL,
+                updated_at DATETIME DEFAULT NOW() NOT NULL,
                 PRIMARY KEY (cita_id)
 );
 
@@ -46,8 +46,8 @@ CREATE TABLE Historial (
                 cita_id INT NOT NULL,
                 descripcion VARCHAR(30) NOT NULL,
                 resumen VARCHAR(30) NOT NULL,
-                created_at DATETIME NOT NULL,
-                updated_at DATETIME NOT NULL,
+                created_at DATETIME DEFAULT NOW() NOT NULL,
+                updated_at DATETIME DEFAULT NOW() NOT NULL,
                 PRIMARY KEY (historial_id)
 );
 
