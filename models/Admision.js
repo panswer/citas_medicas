@@ -89,6 +89,51 @@ class Admision extends DB {
             });
         });
     }
+
+    /**
+     * eliminar fecha de ingreso por su id
+     * @param {number} admisionId 
+     * @returns {Promise<boolean>}
+     */
+    static deleteById(admisionId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`DELETE FROM test.Admision
+            WHERE admision_id=${admisionId};
+            `, (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(true);
+                }
+            });
+        });
+    }
+
+    /**
+     * Listar citas de admision
+     * @param {number} admisionId 
+     * @returns {Promise<import('./Cita').ResultSchema>}
+     */
+    static citasById(admisionId) {
+        let db = new DB();
+        this.session = db.session;
+
+        return new Promise((resolve, reject) => {
+            this.session.query(`SELECT * FROM Citas c WHERE c.admision_id = ${admisionId};`, (error, result, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        result,
+                        fields
+                    });
+                }
+            });
+        });
+    }
 }
 
 export default Admision;
